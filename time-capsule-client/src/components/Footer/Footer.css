@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.footer-container{
+    margin-top: 10rem;
+    background-color: #D9A678;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    padding: 2rem 0;
+
+    color: #5D737E;    
+}
+
+.footer-container > hr{
+    width: 35%;
+    border: none;
+    border-top: 3px solid #5D737E;
+}
