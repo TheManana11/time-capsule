@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import Wrapper from '../assets/wrappers/Auth'
-import Login from '../components/Login'
-import Signup from '../components/Signup'
+import './Auth.css'
+import Login from '../../components/Login-Signup/Login'
+import Signup from '../../components/Login-Signup/Signup'
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
-    <Wrapper>
+    <div className='auth-body'>
         <div className="auth-container">
             <div className={`auth-img ${isLogin ? "" : 'signup-mode-img'}`}>
                 <h1>{isLogin ? "Welcome Back" : "Create your Account"}</h1>
@@ -20,7 +20,7 @@ const Auth = () => {
                 }
             </div>
         </div>
-    </Wrapper>
+    </div>
   )
 }
 

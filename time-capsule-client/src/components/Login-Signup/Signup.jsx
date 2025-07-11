@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Wrapper from "../assets/wrappers/Login";
+import './login-signup.css';
 import { CiUser } from "react-icons/ci";
 import { IoLocationOutline } from "react-icons/io5";
 import { CiMail } from "react-icons/ci";
@@ -34,7 +34,7 @@ const Signup = ({isLogin, setIsLogin}) => {
    
 
   return (
-    <Wrapper>
+    <div className="login-body">
       <h1>Signup</h1>
       <form onSubmit={handleFormSubmission}>
         <div className="form-item">
@@ -100,7 +100,7 @@ const Signup = ({isLogin, setIsLogin}) => {
         <p>Already a member?</p>
         <p onClick={handleAuthChange} className="sign">Login</p>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 

@@ -1,6 +1,3 @@
-import styled from "styled-components";
-
-const Wrapper = styled.div`
   * {
     margin: 0;
     padding: 0;
@@ -10,10 +7,13 @@ const Wrapper = styled.div`
     font-size: 16px;
   }
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  .login-body{
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
 
   h1 {
     margin-bottom: 3rem;
@@ -115,6 +115,3 @@ const Wrapper = styled.div`
     width: 80%;
   }
   }
-`;
-
-export default Wrapper;
