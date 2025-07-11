@@ -11,7 +11,10 @@
   .auth-body{
     height: 100dvh;
   width: 100dvw;
-  background-image: linear-gradient(to right, #5d737e, #000000);
+  background-image: linear-gradient(to right, #5d737e, #D9A678);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +31,10 @@
   }
 
   .auth-img {
-    background-image: url("../../assets/images/login-cover.png");
+    background-image: url("../../assets/images/login-cover.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 50%;
     height: 100%;
     display: flex;
@@ -37,7 +43,6 @@
     text-align: right;
     justify-content: center;
     gap: 3rem;
-    color: white;
     border-radius: 20px;
     transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   }
@@ -47,6 +52,7 @@
   .auth-img > p {
     font-size: 1.5rem;
     max-width: 60%;
+    color: #2e2e2e;
   }
   .auth-content {
     width: 50%;
