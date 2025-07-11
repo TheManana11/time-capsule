@@ -74,8 +74,8 @@ const Wrapper = styled.div`
     transition: all ease-in-out 0.5s;
   }
   form > button:hover {
-    background-color: #8bb1a7;
-    border: 1px solid #8bb1a7;
+    background-color: #F7C59F;
+    border: 1px solid #F7C59F;
     color: white;
   }
   .input {

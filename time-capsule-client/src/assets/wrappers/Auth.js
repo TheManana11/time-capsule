@@ -62,7 +62,7 @@ const Wrapper = styled.div`
     transform: translateX(-100%);
   }
 
-  @media (max-width:1000px) {
+  @media (max-width:1025px) {
     :root{
         font-size: 14px;
     }
@@ -78,7 +78,8 @@ const Wrapper = styled.div`
   }
 
   .auth-container {
-    height: 80%;
+    height: fit-content;
+    padding: 4rem 0;
     width: 80%;
   }
 
