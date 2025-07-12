@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+:root{
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
 /* hero section */
 .hero{
     background-image: url('../../assets/images/hero.png');
@@ -58,22 +63,118 @@
 }
 
 
-/* about us section */
-.about-us{
+/* home sections */
+.home-sections{
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 3rem;
+    justify-content: space-between;
+    gap: 5rem;
+    margin: 3rem 5rem;
 }
-.about-us > img{
+.home-sections > img{
+    width: 50vw;
     height: 75vh;
 }
 
-.about-content{
+.home-sections-content{
     display: flex;
     flex-direction: column;
     align-items: start;
-    max-width: 30vw;
+    max-width:35vw;
     gap: 3rem;
-
 }
+
+.home-sections-head > p{
+    color: #D9A678;
+}
+
+.home-sections-head > h1{
+    color: #5D737E;
+    font-size: 2.5rem;
+}
+
+.home-sections-content > p, .mission > p, .vision > p{
+    font-size: 1.5rem;
+}
+
+
+
+@media (max-width: 1200px) {
+:root{
+    font-size: 14px;
+}
+
+/* home sections */
+.home-sections{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 5rem;
+}
+.reverse{
+    flex-direction: column;
+}
+.home-sections > img{
+    width: 80vw;
+    height: 80vh;
+}
+
+.home-sections-content{
+    max-width:80vw;
+    gap: 2rem;
+}
+}
+
+
+@media (max-width: 768px) {
+:root{
+    font-size: 12px;
+}
+
+/* hero section */
+.hero{
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding-left: 0;
+    padding: 0 2rem;
+
+    font-size: 1.5rem;
+    color: #5D737E;
+}
+
+.hero > p{
+    color: #2e2e2e;
+    max-width: 90%;
+}
+
+/* home sections */
+.home-sections{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 2rem;
+}
+.reverse{
+    flex-direction: column;
+}
+.home-sections > img{
+    width: 90dvw;
+    height: 40vh;
+}
+
+.home-sections-content{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width:90dvw;
+    gap: 2rem;
+}
+}
+
+
+
