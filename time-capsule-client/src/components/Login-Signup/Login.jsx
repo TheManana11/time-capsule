@@ -28,7 +28,7 @@ const Login = ({isLogin, setIsLogin}) => {
   return (
     <div className="login-body">
       <h1>Login</h1>
-      <form onSubmit={handleFormSubmission}>
+      <form className="login-form" onSubmit={handleFormSubmission}>
         <div className="form-item">
           <label htmlFor="email">Email:</label>
           <div className="input">

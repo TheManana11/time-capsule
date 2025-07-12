@@ -21,7 +21,7 @@
     font-size: 2.5rem;
   }
 
-  form {
+  .login-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -64,7 +64,7 @@
     cursor: pointer;
   }
 
-  form > button {
+  .login-form > button {
     font-size: 1.2rem;
     padding: 0.5rem;
     background-color: #5d737e;
@@ -73,7 +73,7 @@
     cursor: pointer;
     transition: all ease-in-out 0.5s;
   }
-  form > button:hover {
+  .login-form > button:hover {
     background-color: #F7C59F;
     border: 1px solid #F7C59F;
     color: white;
@@ -100,7 +100,7 @@
     font-size: 12px;
   }
 
-  form {
+  .login-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

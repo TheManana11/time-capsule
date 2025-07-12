@@ -36,7 +36,7 @@ const Signup = ({isLogin, setIsLogin}) => {
   return (
     <div className="login-body">
       <h1>Signup</h1>
-      <form onSubmit={handleFormSubmission}>
+      <form className="login-form" onSubmit={handleFormSubmission}>
         <div className="form-item">
           <label htmlFor="name">Name:</label>
           <div className="input">
