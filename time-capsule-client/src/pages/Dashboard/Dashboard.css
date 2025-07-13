@@ -1,0 +1,38 @@
+.dashboard{
+    display: flex;
+}
+
+.side-bar{
+    width: 15vw;
+    height: 100dvh;
+    padding-top: 5rem;
+    background-color: #D9A678;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.side-links{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 1rem;
+    font-weight: 500;
+
+    text-decoration: none;
+    color: #5D737E;
+    transition: transform ease-in-out 0.5s;
+}
+
+.side-links:hover{
+    transform: scale(1.2);
+    transform: translate(5px, -5px);
+}
+.side-links:active{
+    border-left: 2px solid #5D737E;
+}
+.side-links:focus{
+     border-left: 2px solid #5D737E;
+
+}
