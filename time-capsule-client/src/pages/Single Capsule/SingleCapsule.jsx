@@ -1,29 +1,26 @@
 import React, { useState } from "react";
-import "./Capsule.css";
-import { IoFilterOutline } from "react-icons/io5";
-import CapsuleCard from "../../components/Capsule Card/CapsuleCard";
+import "./SingleCapsule.css";
 
+import img1 from "../../assets/images/1.webp";
+import img2 from "../../assets/images/2.webp";
+import img3 from "../../assets/images/3.webp";
+import img4 from "../../assets/images/4.jfif";
+import img5 from "../../assets/images/5.jfif";
+import img6 from "../../assets/images/6.jfif";
+import img7 from "../../assets/images/1.webp";
+import img8 from "../../assets/images/2.webp";
+import img9 from "../../assets/images/3.webp";
+import img10 from "../../assets/images/1.webp";
 
-import img1 from '../../assets/images/1.webp'
-import img2 from '../../assets/images/2.webp'
-import img3 from '../../assets/images/3.webp'
-import img4 from '../../assets/images/4.jfif'
-import img5 from '../../assets/images/5.jfif'
-import img6 from '../../assets/images/6.jfif'
-import img7 from '../../assets/images/1.webp'
-import img8 from '../../assets/images/2.webp'
-import img9 from '../../assets/images/3.webp'
-import img10 from '../../assets/images/1.webp'
+import vid1 from "../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.00 PM.mp4";
+import vid2 from "../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.03 PM.mp4";
+import vid3 from "../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.04 PM.mp4";
+import vid4 from "../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.10 PM.mp4";
+import vid5 from "../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.12 PM.mp4";
 
-import vid1 from '../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.00 PM.mp4'
-import vid2 from '../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.03 PM.mp4'
-import vid3 from '../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.04 PM.mp4'
-import vid4 from '../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.10 PM.mp4'
-import vid5 from '../../assets/videos/WhatsApp Video 2025-07-13 at 7.25.12 PM.mp4'
+import audio from "../../assets/audios/WhatsApp Ptt 2025-07-13 at 7.23.30 PM.ogg";
 
-import audio from '../../assets/audios/WhatsApp Ptt 2025-07-13 at 7.23.30 PM.ogg'
-
-const Capsules = () => {
+const SingleCapsule = () => {
   const [capsules, setCapsules] = useState([
     {
       id: 1,
@@ -32,9 +29,9 @@ const Capsules = () => {
       title: "10 Years Later",
       location: "Lebanon",
       message:
-        "This is a random message paragraph filled with memories and future hopes.",
+        "This is a random message paragraph filled with memories and future hopes. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel quasi, et quia distinctio odio aperiam eligendi, doloremque mollitia corporis earum in nemo debitis esse reprehenderit? Consequatur facere commodi est quisquam odit molestias sint corporis corrupti et praesentium illo delectus expedita voluptas, veritatis, a natus. Placeat, fugit? Nulla animi perferendis nobis sapiente est, atque sed optio numquam ullam exercitationem deleniti voluptates alias, ratione quod illo error beatae laudantium aut ex consequuntur, debitis quibusdam minus. Nobis magni nam eveniet velit eligendi, suscipit praesentium! Culpa est explicabo ullam architecto ducimus quidem eius optio suscipit rem ea dolor, sequi aut voluptas deleniti eveniet exercitationem.",
       image_url: img1,
-      video_url: vid1,
+      video_url: vid4,
       audio_url: audio,
       set_date: "2025-01-01",
       reveal_date: "2035-01-01",
@@ -220,69 +217,43 @@ const Capsules = () => {
   ]);
 
   return (
-    <div className="capsules-container">
-      <div className="capsules-filters">
-        <form>
-          <p className="filter-label">
-            <IoFilterOutline /> Filter By
+    <div className="single-capsule-container">
+      <div className="single-capsule-head">
+        <h1>{capsules[0].title} {capsules[0].emoji}</h1>
+        <div className="dates">
+          <p>
+            <strong>set date:</strong> {capsules[0].set_date}
           </p>
-          <div className="filters">
-            <input type="date" />
-            <select name="country">
-              <option value="country">Country</option>
-              <option value="country">Lebanon</option>
-              <option value="country">France</option>
-              <option value="country">Germany</option>
-              <option value="country">Iraq</option>
-              <option value="country">Syria</option>
-              <option value="country">Turkey</option>
-              <option value="country">Palestine</option>
-            </select>
-            <select name="mood">
-              <option value="mood">mood</option>
-              <option value="mood">happy</option>
-              <option value="mood">sad</option>
-              <option value="mood">depressed</option>
-              <option value="mood">cute</option>
-              <option value="mood">energetic</option>
-              <option value="mood">angry</option>
-              <option value="mood">strong</option>
-            </select>
-          </div>
-          <button>Submit</button>
-        </form>
-      </div>
-
-      <div className="capsules">
-        <p className="capsules-head">{capsules.length} Capsules | Page 1</p>
-        <div className="capsule-items">
-          {capsules.map((capsule) => {
-            return (
-              <CapsuleCard
-                img={capsule.image_url}
-                title={capsule.title}
-                location={capsule.location}
-                set_date={capsule.set_date}
-                reveal_date={capsule.reveal_date}
-                views={capsule.views}
-                tags={capsule.tags}
-                color = {capsule.color}
-              />
-            );
-          })}
+          <p>
+            <strong>reveal date:</strong> {capsules[0].reveal_date}
+          </p>
         </div>
       </div>
-
-      <div className="pagination">
-        <button>prev</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>next</button>
+      <div className="single-capsule-media">
+        <div className="single-capsule-img-vd">
+          <img src={capsules[0].image_url} alt="single-capsule-img" />
+          {capsules[0].video_url ? (
+            <video src={capsules[0].video_url} controls />
+          ) : null}
+        </div>
+        <div className="audio">
+          {capsules[0].audio_url ? (
+            <audio src={capsules[0].audio_url} controls />
+          ) : null}
+        </div>
       </div>
-    </div>
+      <div className="single-capsule-content">
+        <p>{capsules[0].message}</p>
+        <div className="single-tags">{
+                capsules[0].tags.map(tag =>{
+                    return <p>#{tag}</p>
+                })
+            }</div>
+        <p><strong>Author:</strong> {capsules[0].user_name}</p>
+        <p className="single-views">{capsules[0].views} Views</p>
+      </div>
+    </div>  
   );
 };
 
-export default Capsules;
+export default SingleCapsule;
