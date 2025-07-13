@@ -113,6 +113,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
+    z-index: 1;
 }
 
 .mobile-link:hover{

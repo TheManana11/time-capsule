@@ -16,7 +16,6 @@
   top: 60%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 2.5rem;
 }
 
 .contact-content {
@@ -34,13 +33,11 @@
 }
 .contact-details > h1 {
   color: #5d737e;
-  font-size: 2.5rem;
 }
 .contact-details > p {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.5rem;
 }
 
 .contactUs-form {
@@ -57,7 +54,6 @@
 }
 .contactUs-form > h1 {
   color: #5d737e;
-  font-size: 2.5rem;
 }
 
 .contact-form {
@@ -94,7 +90,6 @@
   color: white;
   border-radius: 10px;
   transition: all ease-in-out 0.5s;
-  font-size: 1.5rem;
 }
 .contact-form > button:hover {
   border: 2px solid #d9a678;
