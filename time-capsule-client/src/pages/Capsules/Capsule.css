@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-size: 16px;
+}
+
+.capsules-container{
+    margin: 0 5rem;
+}
+
+
+.capsules-filters > form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4rem 0;
+}
+
+.filters{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.filter-label{
+    color: #5D737E;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+.filters > input, .filters > select{
+    padding: 0.2rem 0.5rem;
+    border: 2px solid #5D737E;
+}
+.capsules-filters  button{
+    padding: 0.3rem 0.6rem;
+    background-color: #5D737E;
+    color: white;
+    border: 2px solid #5D737E;
+    cursor: pointer;
+}
+.capsules-filters  button:hover{
+    background-color: #D9A678;
+    color: #5D737E ;
+    border: 2px solid #D9A678;
+}
+
+.capsules{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.capsules-head{
+    color: #D9A678;
+}
+
+.capsule-items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.pagination button{
+  padding: 0.3rem 0.6rem;
+  color: white;
+  background-color: #5d737e;
+  border-radius: 10px;
+  border: 2px solid #5d737e;
+}
+.pagination > button:hover{
+  color: #5d737e;
+  background-color: #d9a678;
+  border: 2px solid #d9a678;
+}
+
+
+@media (max-width: 1200px) {
+    :root{
+        font-size: 14px;
+    }
+    .capsule-items{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+}
+}
+
+
+@media (max-width: 768px) {
+    :root{
+        font-size: 12px;
+    }
+
+    .capsules-filters > form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin: 4rem 0;
+}
+}
+
+@media (max-width: 700px) {
+     .capsule-items{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5rem;
+}
+.capsules{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+}
+
+@media (max-width: 400px) {
+    .filters{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+}

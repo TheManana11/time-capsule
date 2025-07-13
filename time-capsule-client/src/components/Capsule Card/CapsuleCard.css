@@ -1,0 +1,96 @@
+:root {
+  font-size: 16px;
+}
+
+.capsule-card-container {
+  width: 20vw;
+  border: 2px solid red;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.capsule-card-container > hr{
+  border: none;
+  border-top: 3px solid #d9a678;
+}
+
+.card-head,
+.card-middle,
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-head > img {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.capsule-card-head-content > h2 {
+  color: #5d737e;
+  font-size: 1.3rem;
+}
+
+.capsule-card-middle-dates,
+.card-bottom > p {
+  color: #d9a678;
+}
+
+.card-bottom > button {
+  padding: 0.3rem 0.6rem;
+  color: white;
+  background-color: #5d737e;
+  border-radius: 10px;
+  border: 2px solid #5d737e;
+}
+.card-bottom > button:hover{
+  color: #5d737e;
+  background-color: #d9a678;
+  border: 2px solid #d9a678;
+}
+
+.card-middle-tags {
+  font-size: 0.8rem;
+  color: #788faa;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    font-size: 14px;
+  }
+  .capsule-card-container {
+  width: 30vw;
+  border: 2px solid red;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 700px) {
+    .capsule-card-container {
+  width: 50vw;
+  border: 2px solid red;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+}
