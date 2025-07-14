@@ -1,8 +1,4 @@
 
-:root{
-    font-size: 17px;
-}
-
 .single-capsule-container{
     display: flex;
     flex-direction: column;
@@ -29,22 +25,10 @@
     gap: 2rem;
 }
 
-.single-capsule-img-vd{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-}
-
-.single-capsule-img-vd > img{
-    max-width: 40vw;
-    max-height: 70vh;
-    border-radius: 10px;
-}
-
-.single-capsule-img-vd > video{
-    max-width: 40vw;
+.single-capsule-media > img{
+    max-width: 100vw;
     max-height: 80vh;
+    border-radius: 10px;
 }
 
 audio{
@@ -67,22 +51,7 @@ audio{
 }
 
 
- @media (max-width: 1440px) {
-    :root{
-      font-size: 16px;
-    }
-  }
-
-@media (max-width:1000px) {
-    :root{
-        font-size: 14px;
-    }
-}
-
 @media (max-width: 768px) {
-    :root{
-        font-size: 12px;
-    }
     .single-capsule-container{
     display: flex;
     flex-direction: column;

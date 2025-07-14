@@ -4,6 +4,7 @@ import "./Home.css";
 import aboutImg from "../../assets/images/time (3).png";
 import captureImg from "../../assets/images/time.png";
 import missionImg from "../../assets/images/time (4).png";
+import Button from "../../components/shared/Button/Button.jsx";
 
 const Home = () => {
   return (
@@ -12,9 +13,9 @@ const Home = () => {
         <h1>Welcome to Capsula</h1>
         <p>Your digital time capsule for life’s most meaningful moments.</p>
         <div className="home-hero-links">
-          <Link to={"/capsules"} className="hero-btn">Capsules</Link>
-          <a className="hero-btn hero-about-btn" href="#about">
-            About Us
+          <Link to={"/capsules"}><Button text={"Capsules"}/></Link>
+          <a href="#about">
+            <Button text={"About us"} className={"hero-about-btn"} />
           </a>
         </div>
       </div>

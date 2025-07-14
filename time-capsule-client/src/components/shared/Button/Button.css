@@ -1,0 +1,31 @@
+.button{
+    text-decoration: none;
+    background-color: #5D737E;
+    padding: 0.6rem 1.3rem;
+    color: white;
+    border: 2px solid #5D737E;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+.button:hover{
+    background-color: #FF922F;
+    border: 2px solid #FF922F;
+
+}
+
+.header-btns:hover{
+    background-color: white;
+}
+
+.hero-about-btn{
+    color: #5D737E;
+    background-color: transparent;
+    border: 2px solid #5D737E;
+}
+.hero-about-btn:hover{
+    color: white;
+    background-color: #FF922F;
+    border: 2px solid #FF922F;
+}

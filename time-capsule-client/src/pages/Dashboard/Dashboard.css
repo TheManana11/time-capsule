@@ -1,6 +1,3 @@
-:root{
-    font-size: 17px;
-}
 
 .dashboard{
     display: flex;
@@ -40,9 +37,3 @@
      border-left: 2px solid #ffffff;
 
 }
-
- @media (max-width: 1440px) {
-    :root{
-      font-size: 16px;
-    }
-  }

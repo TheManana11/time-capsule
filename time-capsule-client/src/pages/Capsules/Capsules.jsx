@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Capsule.css";
 import { IoFilterOutline } from "react-icons/io5";
 import CapsuleCard from "../../components/Capsule Card/CapsuleCard";
+import Button from '../../components/shared/Button/Button'
 
 
 import img1 from '../../assets/images/1.webp'
@@ -249,7 +250,7 @@ const Capsules = () => {
               <option value="mood">strong</option>
             </select>
           </div>
-          <button>Submit</button>
+          <Button text={"Submit"}/>
         </form>
       </div>
 
@@ -274,12 +275,11 @@ const Capsules = () => {
       </div>
 
       <div className="pagination">
-        <button>prev</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>next</button>
+        <Button text={"prev"}/>
+        <Button text={"1"}/>
+        <Button text={"2"}/>
+        <Button text={"3"}/>
+        <Button text={"next"}/>
       </div>
     </div>
   );

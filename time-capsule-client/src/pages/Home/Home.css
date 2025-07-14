@@ -1,10 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
 :root{
-    font-size: 17px;
     scroll-behavior: smooth;
 }
 
@@ -41,29 +35,7 @@
     gap: 1rem;
 }
 
-.hero-btn{
-    text-decoration: none;
-    background-color: #5D737E;
-    padding: 0.6rem 1.3rem;
-    color: white;
-    border-radius: 10px;
-    transition: all ease-in-out 0.5s;
-}
-.hero-btn:hover{
-    background-color: #FF922F;
-    color: #5D737E;
-}
 
-.hero-about-btn{
-    color: #5D737E;
-    background-color: transparent;
-    border: 2px solid #5D737E;
-}
-.hero-about-btn:hover{
-    color: #5D737E;
-    background-color: #FF922F;
-    border: 2px solid #FF922F;
-}
 
 
 /* home sections */
@@ -97,13 +69,6 @@
 }
 
 
- @media (max-width: 1440px) {
-    :root{
-      font-size: 16px;
-    }
-  }
-
-
 @media (max-width: 1200px) {
 :root{
     font-size: 14px;
@@ -134,9 +99,6 @@
 
 
 @media (max-width: 768px) {
-:root{
-    font-size: 12px;
-}
 
 /* hero section */
 .hero{

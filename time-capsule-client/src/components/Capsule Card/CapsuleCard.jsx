@@ -1,5 +1,6 @@
 import React from 'react'
 import './CapsuleCard.css'
+import Button from '../shared/Button/Button'
 
 const CapsuleCard = ({img, title, set_date, reveal_date, tags, views, location, color}) => {
   return (
@@ -27,7 +28,7 @@ const CapsuleCard = ({img, title, set_date, reveal_date, tags, views, location, 
         <hr />
         <div className="card-bottom">
             <p>{views} views</p>
-            <button>View Details</button>
+            <Button text={"View Details"}/>
         </div>
     </div>
   )

@@ -230,12 +230,7 @@ const SingleCapsule = () => {
         </div>
       </div>
       <div className="single-capsule-media">
-        <div className="single-capsule-img-vd">
-          <img src={capsules[0].image_url} alt="single-capsule-img" />
-          {capsules[0].video_url ? (
-            <video src={capsules[0].video_url} controls />
-          ) : null}
-        </div>
+        <img src={capsules[0].image_url} alt="single-capsule-img" />
         <div className="audio">
           {capsules[0].audio_url ? (
             <audio src={capsules[0].audio_url} controls />

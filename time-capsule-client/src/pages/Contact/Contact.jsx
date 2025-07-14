@@ -3,6 +3,7 @@ import "./Contact.css";
 import contactImg from "../../assets/images/Vector (1).png";
 import { LuPhone } from "react-icons/lu";
 import { MdMailOutline } from "react-icons/md";
+import Button from '../../components/shared/Button/Button'
 
 const Contact = () => {
   const[formData, setFormData] = useState({
@@ -57,7 +58,7 @@ const Contact = () => {
                 <label htmlFor="message">Message</label>
                 <textarea name="message" rows={6} placeholder="write you concerns or feedback here ... " onChange={handleChange} value={formData.message}></textarea>
               </div>
-              <button>Submit</button>
+              <Button text={"Submit"} />
             </form>
         </div>
       </div>

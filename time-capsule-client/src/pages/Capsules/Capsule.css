@@ -1,12 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-:root{
-    font-size: 17px;
-}
-
 .capsules-container{
     margin: 0 5rem;
 }
@@ -36,18 +27,6 @@
     border: 1px solid #5D737E;
     border-radius: 5px;
 }
-.capsules-filters  button{
-    padding: 0.6rem 1.3rem;
-    background-color: #5D737E;
-    color: white;
-    border: 2px solid #5D737E;
-    cursor: pointer;
-}
-.capsules-filters  button:hover{
-    background-color: #FF922F;
-    color: #5D737E ;
-    border: 2px solid #FF922F;
-}
 
 .capsules{
     display: flex;
@@ -75,25 +54,7 @@
     margin-bottom: 5rem;
 }
 
-.pagination button{
-  padding: 0.6rem 0.6rem;
-  color: white;
-  background-color: #5d737e;
-  border-radius: 10px;
-  border: 2px solid #5d737e;
-  cursor: pointer;
-}
-.pagination > button:hover{
-  color: #5d737e;
-  background-color: #FF922F;
-  border: 2px solid #FF922F;
-}
 
- @media (max-width: 1440px) {
-    :root{
-      font-size: 16px;
-    }
-  }
 
 
 @media (max-width: 1200px) {

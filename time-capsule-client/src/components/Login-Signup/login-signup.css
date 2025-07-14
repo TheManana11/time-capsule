@@ -1,12 +1,3 @@
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  :root {
-    font-size: 16px;
-  }
-
   .login-body{
 
       display: flex;
@@ -69,6 +60,7 @@
     border: 1px solid #5d737e;
     color: white;
     cursor: pointer;
+    font-weight: bold;
     transition: all ease-in-out 0.5s;
   }
   .login-form > button:hover {
@@ -86,17 +78,11 @@
     color: #2f2e2eff;
   }
 
-  @media (max-width: 1000px) {
-    :root {
-    font-size: 14px;
-  }
-  }
+ 
 
 
   @media (max-width: 768px) {
-    :root {
-    font-size: 12px;
-  }
+
 
   .login-form {
     display: flex;

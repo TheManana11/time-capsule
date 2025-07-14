@@ -1,12 +1,4 @@
 
- * {
-    margin: 0;
-    padding: 0;
-  }
-
-  :root{
-    font-size: 17px;
-  }
 
   .auth-body{
     height: 100dvh;
@@ -65,12 +57,6 @@
     transform: translateX(-100%);
   }
 
-  @media (max-width: 1440px) {
-    :root{
-      font-size: 16px;
-    }
-  }
-
   @media (max-width:1025px) {
     :root{
         font-size: 14px;
@@ -81,9 +67,6 @@
   }
 
   @media (max-width:768px) {
-:root{
-    font-size: 12px;
-  }
 
   .auth-container {
     height: fit-content;
