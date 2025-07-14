@@ -9,7 +9,7 @@ import { IoMdClose } from "react-icons/io";
 import Button from '../shared/Button/Button'
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [menu, setMenu] = useState(false);
 
   return (
