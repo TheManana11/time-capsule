@@ -7,7 +7,7 @@
 }
 
 .header-container{
-    background-color: #D9A678;
+    background-color: #FF922F;
     width: 100%;
     height: 15vh;
     z-index: 2;
@@ -20,7 +20,7 @@
 }
 
 .logo{
-    color: #5D737E;
+    color: white;
     text-decoration: none;
 }
 
@@ -32,15 +32,15 @@
 
 .header-link{
     text-decoration: none;
-    color: #5D737E;
+    color: #ffffff;
     font-weight: 600;
 }
 .header-link:hover{
-    color: white;
+    color: #5D737E;
 }
 
 .header-link:active{
-    color: white;
+    color: #5D737E;
 }
 
 .header-login-btn{
@@ -64,11 +64,11 @@
     align-items: center;
 }
 .header-user-icon{
-    color: #5D737E;
+    color: white;
     cursor: pointer;
 }
 .header-user-icon{
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .header-logout{
@@ -79,19 +79,19 @@
     text-decoration: none;
     border: none;
     color: white;
-    padding: 0.3rem 1rem;
+    padding: 0.6rem 1.3rem;
     border-radius: 10px;
     transition: all ease-in-out 0.5s;
     cursor: pointer; 
 }
 .header-logout:hover{
-    background-color: transparent;
+    background-color: white;
     color: #5D737E;
     border: 2px solid #5D737E;
 }
 
 .burger-menu{
-    color: #5D737E;
+    color: #ffffff;
     font-size: 30px;
     cursor: pointer;
     display: none;
@@ -101,6 +101,8 @@
     position: absolute;
     top: 15vh;
     left: 0;
+
+    color: #FF922F;
 
     width: 100vw;
     height: fit-content;
@@ -116,8 +118,12 @@
     z-index: 1;
 }
 
+.mobile-link{
+    color: #FF922F;
+}
+
 .mobile-link:hover{
-    color: #D9A678;
+    color: #5D737E;
 }
 
 

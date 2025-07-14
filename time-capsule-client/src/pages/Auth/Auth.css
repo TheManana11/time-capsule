@@ -5,13 +5,13 @@
   }
 
   :root{
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .auth-body{
     height: 100dvh;
   width: 100dvw;
-  background-image: linear-gradient(to right, #5d737e, #D9A678);
+  background-image: linear-gradient(to right, #5d737e, #FF922F);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -63,6 +63,12 @@
   }
   .signup-mode-content {
     transform: translateX(-100%);
+  }
+
+  @media (max-width: 1440px) {
+    :root{
+      font-size: 16px;
+    }
   }
 
   @media (max-width:1025px) {

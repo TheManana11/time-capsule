@@ -30,7 +30,7 @@ const Login = ({isLogin, setIsLogin}) => {
       <h1>Login</h1>
       <form className="login-form" onSubmit={handleFormSubmission}>
         <div className="form-item">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email</label>
           <div className="input">
             <CiMail className="icon"/>
             <input
@@ -44,7 +44,7 @@ const Login = ({isLogin, setIsLogin}) => {
         </div>
 
         <div className="form-item">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <div className="input">
             <CiLock className="icon" />
             <input

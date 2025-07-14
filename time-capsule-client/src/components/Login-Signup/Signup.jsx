@@ -38,7 +38,7 @@ const Signup = ({isLogin, setIsLogin}) => {
       <h1>Signup</h1>
       <form className="login-form" onSubmit={handleFormSubmission}>
         <div className="form-item">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Name</label>
           <div className="input">
             <CiUser className="icon"/>
             <input
@@ -52,7 +52,7 @@ const Signup = ({isLogin, setIsLogin}) => {
         </div>
 
         <div className="form-item">
-          <label htmlFor="country">Country:</label>
+          <label htmlFor="country">Country</label>
           <div className="input">
             <IoLocationOutline className="icon"/>
             <input
@@ -67,7 +67,7 @@ const Signup = ({isLogin, setIsLogin}) => {
 
 
         <div className="form-item">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email</label>
           <div className="input">
             <CiMail className="icon"/>
             <input
@@ -81,7 +81,7 @@ const Signup = ({isLogin, setIsLogin}) => {
         </div>
 
         <div className="form-item">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <div className="input">
             <CiLock className="icon" />
             <input

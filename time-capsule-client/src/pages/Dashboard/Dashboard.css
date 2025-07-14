@@ -1,3 +1,7 @@
+:root{
+    font-size: 17px;
+}
+
 .dashboard{
     display: flex;
 }
@@ -6,7 +10,7 @@
     width: 15vw;
     height: 100dvh;
     padding-top: 5rem;
-    background-color: #D9A678;
+    background-color: #FF922F;
 
     display: flex;
     flex-direction: column;
@@ -21,7 +25,7 @@
     font-weight: 500;
 
     text-decoration: none;
-    color: #5D737E;
+    color: #ffffff;
     transition: transform ease-in-out 0.5s;
 }
 
@@ -30,9 +34,15 @@
     transform: translate(5px, -5px);
 }
 .side-links:active{
-    border-left: 2px solid #5D737E;
+    border-left: 2px solid #ffffff;
 }
 .side-links:focus{
-     border-left: 2px solid #5D737E;
+     border-left: 2px solid #ffffff;
 
 }
+
+ @media (max-width: 1440px) {
+    :root{
+      font-size: 16px;
+    }
+  }

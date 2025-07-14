@@ -1,5 +1,5 @@
 :root {
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .capsule-card-container {
@@ -15,7 +15,7 @@
 
 .capsule-card-container > hr{
   border: none;
-  border-top: 3px solid #d9a678;
+  border-top: 3px solid #FF922F;
 }
 
 .card-head,
@@ -38,25 +38,34 @@
 
 .capsule-card-middle-dates,
 .card-bottom > p {
-  color: #d9a678;
+  color: #000000;
 }
 
 .card-bottom > button {
-  padding: 0.3rem 0.6rem;
+  padding: 0.6rem 1.3rem;
   color: white;
   background-color: #5d737e;
   border-radius: 10px;
   border: 2px solid #5d737e;
+  cursor: pointer;
+  transition: all ease-in-out 0.5s;
 }
 .card-bottom > button:hover{
   color: #5d737e;
-  background-color: #d9a678;
-  border: 2px solid #d9a678;
+  background-color: #FF922F;
+  border: 2px solid #FF922F;
 }
 
 .card-middle-tags {
   font-size: 0.8rem;
   color: #788faa;
+}
+
+
+@media (max-width: 1440px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 1200px) {

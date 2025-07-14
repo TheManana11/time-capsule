@@ -72,8 +72,8 @@
     transition: all ease-in-out 0.5s;
   }
   .login-form > button:hover {
-    background-color: #F7C59F;
-    border: 1px solid #F7C59F;
+    background-color: #FF922F;
+    border: 1px solid #FF922F;
     color: white;
   }
   .input {
@@ -82,7 +82,7 @@
     gap: 0.5rem;
   }
   .icon {
-    font-size: 20px;
+    font-size: 17px;
     color: #2f2e2eff;
   }
 

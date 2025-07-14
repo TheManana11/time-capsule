@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { FaRegCircleUser } from "react-icons/fa6";
+import { PiUserCircleLight } from "react-icons/pi";
 import { IoLogInOutline } from "react-icons/io5";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
@@ -31,7 +31,7 @@ const Header = () => {
       <div>
         {isLoggedIn ? (
           <div className="header-user">
-            <Link to={"/dashboard"}><FaRegCircleUser className="header-user-icon" /></Link>
+            <Link to={"/dashboard"}><PiUserCircleLight className="header-user-icon" /></Link>
             <button className="header-logout">
               Logout
             </button>

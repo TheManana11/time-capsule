@@ -1,6 +1,6 @@
 
 :root{
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .single-capsule-container{
@@ -39,6 +39,7 @@
 .single-capsule-img-vd > img{
     max-width: 40vw;
     max-height: 70vh;
+    border-radius: 10px;
 }
 
 .single-capsule-img-vd > video{
@@ -58,17 +59,19 @@ audio{
     gap: 1rem;
 }
 
-.single-capsule-content strong{
-    color: #5D737E;
-}
+
 .single-tags{
     display: flex;
     gap: 0.2rem;
     color: #2B65AA;
 }
-.single-views{
-    color: #D9A678;
-}
+
+
+ @media (max-width: 1440px) {
+    :root{
+      font-size: 16px;
+    }
+  }
 
 @media (max-width:1000px) {
     :root{
