@@ -1,0 +1,35 @@
+.user-capsules-container{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    gap: 2rem;
+    
+}
+
+.user-capsules-container > h1{
+    color: #5D737E;
+}
+
+.user-capsules{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 1250px) {
+  .user-capsules{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+  
+}
+
+@media (max-width: 768px) {
+  .user-capsules{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+}
+  
+}

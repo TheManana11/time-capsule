@@ -2,7 +2,7 @@ import React from 'react'
 import './CapsuleCard.css'
 import Button from '../shared/Button/Button'
 
-const CapsuleCard = ({img, title, set_date, reveal_date, tags, views, location, color}) => {
+const CapsuleCard = ({img, title, set_date, reveal_date, tags, views, location, color, type=""}) => {
   return (
     <div className='capsule-card-container' style={{border: `2px solid ${color}`}}>
         <div className="card-head">
@@ -10,6 +10,7 @@ const CapsuleCard = ({img, title, set_date, reveal_date, tags, views, location, 
             <div className="capsule-card-head-content">
                 <h2>{title}</h2>
                 <p>{location}</p>
+                <p>{type ? type : ""}</p>
             </div>
         </div>
         <div className="card-middle">
