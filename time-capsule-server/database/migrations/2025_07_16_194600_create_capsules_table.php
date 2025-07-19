@@ -22,13 +22,13 @@ return new class extends Migration
             $table->string("country");
             $table->string("city");
             $table->decimal("latitude", total: 10, places: 8);
-            $table->decimal("longitude", total: 10, places: 8);
+            $table->decimal("longitude", total: 11, places: 8);
             $table->enum("type", ["public", "private", "unlisted"])->default("public");
             $table->char("emoji");
             $table->string("color");
             $table->integer("views");
             $table->boolean("is_surprise");
-            $table->date("reveal_date");
+            $table->dateTime("reveal_date");
             $table->timestamps();
         });
     }
