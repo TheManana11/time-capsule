@@ -17,10 +17,10 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('capsule_tags', function (Blueprint $table) {
+        Schema::create('capsule_tag', function (Blueprint $table) {
             $table->id();
-            $table->integer("tag_id");
-            $table->integer("capsule_id");
+            $table->foreignId("capsule_id")->constrained()->onDelete('cascade');
+            $table->foreignId("tag_id")->constrained()->onDelete('cascade');
             $table->timestamps();
         });
 

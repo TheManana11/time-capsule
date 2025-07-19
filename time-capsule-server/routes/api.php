@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CapsuleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 
@@ -17,9 +18,7 @@ Route::group(["middleware" => "auth:api"], function () {
 });
 
 
+Route::get('/user-capsules/{id}', [CapsuleController::class, 'getUserCapsules']);
+Route::get('/capsules', [CapsuleController::class, 'getPublicCapsules']);
+Route::get('/capsules/{id}', [CapsuleController::class, 'getSingleCapsules']);
 
-
-
-Route::get('/capsules/{public}', ['UserController', 'getPublicCapsules']);
-Route::get('/capsules/{user_id}', ['UserController', 'getUserCapsules']);
-Route::post('/capsule', ['UserController', 'addCapsule']);
