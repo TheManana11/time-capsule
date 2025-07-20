@@ -1,38 +1,58 @@
 import React, { useState } from "react";
-import './login-signup.css';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./login-signup.css";
 import { CiMail } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
 
-const Login = ({isLogin, setIsLogin}) => {
+const Login = ({ isLogin, setIsLogin }) => {
+  const backend_url = "http://127.0.0.1:8000/api";
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
+
+  const [error, setError] = useState("");
 
   const handleAuthChange = () => {
     setIsLogin(!isLogin);
-  } 
+  };
 
   const handleChange = (e) => {
-    setFormData(prev=>({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-  const handleFormSubmission = (e) => {
+  const handleFormSubmission = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post(`${backend_url}/guest/login`, formData);
+      const user = response.data.payload;
+      setFormData({
+        email: "",
+        password: "",
+      });
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/");
+    } catch (error) {
+      setError(error?.response?.data?.message);
+      console.log(error?.response?.data?.message);
+      console.log(error.response);
+    }
     console.log(formData);
-  }
+  };
 
   return (
     <div className="login-body">
       <h1>Login</h1>
-      <form className="login-form" onSubmit={handleFormSubmission}>
+      <form className="login-form">
         <div className="form-item">
           <label htmlFor="email">Email</label>
           <div className="input">
-            <CiMail className="icon"/>
+            <CiMail className="icon" />
             <input
               type="text"
               name="email"
@@ -56,12 +76,15 @@ const Login = ({isLogin, setIsLogin}) => {
             />
           </div>
         </div>
+        <span className="error">{error}</span>
 
-        <button>Login</button>
+        <button onClick={handleFormSubmission}>Login</button>
       </form>
       <div className="not-member">
         <p>Not a member?</p>
-        <p onClick={handleAuthChange} className="sign">Sign up</p>
+        <p onClick={handleAuthChange} className="sign">
+          Sign up
+        </p>
       </div>
     </div>
   );

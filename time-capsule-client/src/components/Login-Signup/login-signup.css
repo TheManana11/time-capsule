@@ -78,7 +78,11 @@
     color: #2f2e2eff;
   }
 
- 
+ .error{
+  color: red;
+  font-weight: bold;
+  font-size: 0.8rem;
+ }
 
 
   @media (max-width: 768px) {

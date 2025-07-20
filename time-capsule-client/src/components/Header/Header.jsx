@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { PiUserCircleLight } from "react-icons/pi";
 import { IoLogInOutline } from "react-icons/io5";
@@ -9,8 +9,26 @@ import { IoMdClose } from "react-icons/io";
 import Button from '../shared/Button/Button'
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [menu, setMenu] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    const token = JSON.parse(user)?.token;
+    if(token){
+      setIsLoggedIn(true);
+    }else{
+      setIsLoggedIn(false);
+    }
+  }, []);
+
+  const handleLogOut = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false); 
+    navigate("/");
+  }
 
   return (
     <header className="header-container">
@@ -34,7 +52,7 @@ const Header = () => {
         {isLoggedIn ? (
           <div className="header-user">
             <Link to={"/dashboard"}><PiUserCircleLight className="header-user-icon" /></Link>
-            <Button text={"Logout"} className="header-btns"/>
+            <Button method={handleLogOut} text={"Logout"} className="header-btns"/>
           </div>
         ) : (
           <Link to={"/login-signup"}>

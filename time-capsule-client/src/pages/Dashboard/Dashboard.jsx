@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Dashboard.css'
-import { Outlet, Link } from 'react-router-dom'
+import axios from 'axios';
+import { Outlet, Link, useNavigate } from 'react-router-dom'
 import { CiUser } from "react-icons/ci";
 import { LiaUserEditSolid } from "react-icons/lia";
 import { IoIosAddCircleOutline } from "react-icons/io";
@@ -10,6 +11,25 @@ import { MdMenuOpen } from "react-icons/md";
 
 const Dashboard = () => {
 
+  const backend_url = "http://127.0.0.1:8000/api";
+
+  const navigate = useNavigate();
+
+  const user_local = localStorage.getItem("user");
+  const token = JSON.parse(user_local)?.token;
+  const id = JSON.parse(user_local)?.id;
+
+  const getUser = async() => {
+    try {
+      const response = await axios.get(`${backend_url}/user/users/${id}`, {headers: { Authorization: `Bearer ${token}` }});
+    } catch (error) {
+      navigate("/login-signup");
+    }
+  }
+  useEffect(() => {
+    getUser();
+  }, [])
+  
   const[sideBar, setSideBar] = useState(true);
 
   return (

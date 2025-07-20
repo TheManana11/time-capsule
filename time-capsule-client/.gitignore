@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+../time-capsule-server
+
 # testing
 /coverage
 

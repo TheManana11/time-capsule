@@ -1,46 +1,67 @@
-import React, {useState} from "react";
-import './login-signup.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./login-signup.css";
+
+import axios from "axios";
+
 import { CiUser } from "react-icons/ci";
 import { IoLocationOutline } from "react-icons/io5";
 import { CiMail } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
 
-const Signup = ({isLogin, setIsLogin}) => {
+const Signup = ({ isLogin, setIsLogin }) => {
+  const backend_url = "http://127.0.0.1:8000/api";
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-      name: "",
-      country: "",
-      email: "",
-      password: ""
-    })
-  
+    name: "",
+    email: "",
+    country: "",
+    password: "",
+  });
 
-    const handleAuthChange = () => {
-      setIsLogin(!isLogin);
-    } 
-  
-    const handleChange = (e) => {
-      setFormData(prev=>({
-        ...prev,
-        [e.target.name]: e.target.value
-      }))
-    }
-  
-    const handleFormSubmission = (e) => {
-      e.preventDefault();
-      console.log(formData);
-    }
-  
+  const [error, setError] = useState("");
 
-   
+  const handleAuthChange = () => {
+    setIsLogin(!isLogin);
+  };
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleFormSubmission = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${backend_url}/guest/register`, formData);
+      console.log(response);
+
+      const user = response.data.payload;
+      setFormData({
+        name: "",
+        email: "",
+        country: "",
+        password: "",
+      });
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate('/');
+    } catch (error) {
+      setError(error?.response?.data?.message);
+      console.log(error?.response?.data?.message);
+      console.log(error.response);
+    }
+  };
 
   return (
     <div className="login-body">
       <h1>Signup</h1>
-      <form className="login-form" onSubmit={handleFormSubmission}>
+      <form className="login-form">
         <div className="form-item">
           <label htmlFor="name">Name</label>
           <div className="input">
-            <CiUser className="icon"/>
+            <CiUser className="icon" />
             <input
               type="text"
               name="name"
@@ -54,7 +75,7 @@ const Signup = ({isLogin, setIsLogin}) => {
         <div className="form-item">
           <label htmlFor="country">Country</label>
           <div className="input">
-            <IoLocationOutline className="icon"/>
+            <IoLocationOutline className="icon" />
             <input
               type="text"
               name="country"
@@ -65,11 +86,10 @@ const Signup = ({isLogin, setIsLogin}) => {
           </div>
         </div>
 
-
         <div className="form-item">
           <label htmlFor="email">Email</label>
           <div className="input">
-            <CiMail className="icon"/>
+            <CiMail className="icon" />
             <input
               type="text"
               name="email"
@@ -92,13 +112,16 @@ const Signup = ({isLogin, setIsLogin}) => {
               value={formData.password}
             />
           </div>
+          <span className="error">{error}</span>
         </div>
 
-        <button>Signup</button>
+        <button onClick={handleFormSubmission}>Signup</button>
       </form>
       <div className="not-member">
         <p>Already a member?</p>
-        <p onClick={handleAuthChange} className="sign">Login</p>
+        <p onClick={handleAuthChange} className="sign">
+          Login
+        </p>
       </div>
     </div>
   );

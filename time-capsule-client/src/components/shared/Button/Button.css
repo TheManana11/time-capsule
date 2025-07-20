@@ -17,6 +17,8 @@
 
 .header-btns:hover{
     background-color: white;
+    color: #5D737E;
+    border: 2px solid #5D737E;
 }
 
 .hero-about-btn{
