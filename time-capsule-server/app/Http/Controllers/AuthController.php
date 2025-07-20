@@ -21,7 +21,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $user = AuthService::register($request);
-        if (!$user) return ResponseService::response([], "Invalid Entries: Missing values or Email already exists or email format is wrong or password is less than 6 characters", 401);
+        if (!$user) return ResponseService::response([], "Invalid Entries: Missing values or Email already exists or email format is wrong or password is less than 6 characters", 400);
         return ResponseService::response($user, "User registered Successfully", 201);
     }
 
