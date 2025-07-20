@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login-signup.css";
+import Response from '../shared/Response/Response'
 
 import axios from "axios";
 
@@ -10,6 +11,8 @@ import { CiMail } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
 
 const Signup = ({ isLogin, setIsLogin }) => {
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   const backend_url = "http://127.0.0.1:8000/api";
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -19,6 +22,7 @@ const Signup = ({ isLogin, setIsLogin }) => {
     password: "",
   });
 
+  const [message, setMessage] = useState(false);
   const [error, setError] = useState("");
 
   const handleAuthChange = () => {
@@ -46,6 +50,8 @@ const Signup = ({ isLogin, setIsLogin }) => {
         password: "",
       });
       localStorage.setItem("user", JSON.stringify(user));
+      setMessage(true);
+      await delay(3000);
       navigate('/');
     } catch (error) {
       setError(error?.response?.data?.message);
@@ -54,7 +60,23 @@ const Signup = ({ isLogin, setIsLogin }) => {
     }
   };
 
+
+  const timer = () => {
+    setTimeout(() => {
+      setMessage(false);
+    }, 3000);
+  };
+
+  useEffect(() => {
+    timer();
+  }, [setMessage]);
+
+  const closeResponse = () => {
+    setMessage(false);
+  };
+
   return (
+    <>
     <div className="login-body">
       <h1>Signup</h1>
       <form className="login-form">
@@ -124,6 +146,16 @@ const Signup = ({ isLogin, setIsLogin }) => {
         </p>
       </div>
     </div>
+      {message ? (
+        <Response
+          close={closeResponse}
+          response_message={"Registered Successfully"}
+          response_type={"success"}
+        />
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 

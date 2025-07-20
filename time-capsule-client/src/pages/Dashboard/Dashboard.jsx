@@ -39,7 +39,7 @@ const Dashboard = () => {
         <Link className='side-links' to={"user-profile"}><CiUser />  {sideBar ? "User Profile" : ""}</Link>
         <Link className='side-links' to={"edit-user"}> <LiaUserEditSolid /> {sideBar ? "Edit Profile" : ""}</Link>
         <Link className='side-links' to={"add-capsule"}> <IoIosAddCircleOutline /> {sideBar ? "Add Capsule" : ""}</Link>
-        <Link className='side-links' to={"user-capsules"}> <ImBooks /> {sideBar ? "All Capsules" : ""}</Link>
+        <Link className='side-links' to={`user-capsules`}> <ImBooks /> {sideBar ? "All Capsules" : ""}</Link>
       </div>
       {/* <div className="side-bar-mobile">
         <Link className='side-links' to={"user-profile"}><CiUser /></Link>

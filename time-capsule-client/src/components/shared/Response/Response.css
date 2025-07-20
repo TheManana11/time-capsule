@@ -1,0 +1,43 @@
+.response-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.85);
+    z-index: 10;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+
+.response-container-section{
+    padding: 2rem 3rem;
+    /* border-radius: 20px; */
+    margin-top: 5rem;
+    position: relative;
+}
+
+.response-close-icon{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+}
+
+
+.response-success{
+    background-color: green;
+}
+
+.response-error{
+     background-color: red;
+}
+
+.response-container-section > p{
+    color: white;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
