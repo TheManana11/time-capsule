@@ -12,7 +12,7 @@ class CapsuleController extends Controller
     static function getPublicCapsules(Request $req){
         $capsules = CapsuleService::getPublicCapsules($req);
         if(!$capsules) return ResponseService::response([], "No Capsules for this user", 404);
-        return ResponseService::response([$capsules], "Capsules Fetched successfully");
+        return ResponseService::response($capsules, "Capsules Fetched successfully");
     }
 
     static function getSingleCapsules(string $id){

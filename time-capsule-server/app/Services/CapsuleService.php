@@ -12,13 +12,22 @@ class CapsuleService
     static function getPublicCapsules(Request $req) {
 
         $page_number = $req->page;
-        $skip = ($page_number - 1) * 6;
+        $start_date = $req->start_date;
+        $end_date = $req->end_date;
+        $country = $req->country;
+        $tags = $req->tags;
+
+
+        $skip = ($page_number - 1) * 9;
 
         $capsules = Capsule::with("user:id,name", "tags:id,name")
                             ->where("type", "public")
                             ->where("reveal_date", "<", now())
-                            ->skip($skip)
-                            ->limit(6)
+                            // ->where("reveal_date", ">", $start_date)
+                            // ->where("reveal_date", "<", $end_date)
+                            // ->where("country", $country)
+                            // ->skip($skip)
+                            // ->limit(9)
                             ->get();
 
         if(!$capsules) return null;
@@ -26,7 +35,9 @@ class CapsuleService
         $total_capsules = Capsule::where("type", "public")
                             ->where("reveal_date", "<", now())
                             ->count();
-        $capsules["total"] = $total_capsules;                    
+        $total_pages = $total_capsules / 9;  
+        
+        $capsules[] = ceil($total_pages);
         return $capsules;
     }
 

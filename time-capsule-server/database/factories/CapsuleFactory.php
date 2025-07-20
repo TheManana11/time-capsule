@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Capsule>
@@ -16,12 +17,25 @@ class CapsuleFactory extends Factory
      */
     public function definition(): array
     {
+        $imagePath = storage_path('app/public/images');
+        $audioPath = storage_path('app/public/audios');
+
+        $imageFiles = glob($imagePath . '/*.*'); 
+        $audioFiles = glob($audioPath . '/*.*');
+
+
+        $randomImageFullPath = $imageFiles[array_rand($imageFiles)];
+        $randomAudioFullPath = $audioFiles[array_rand($audioFiles)];
+
+        $randomImage = 'images/' . basename($randomImageFullPath);
+        $randomAudio = 'audios/' . basename($randomAudioFullPath);
+        
         return [
             'user_id' => fake()->numberBetween(1, 30), 
             'title' => fake()->sentence(5),
             'message' => fake()->realText(),
-            'image_url' => fake()->imageUrl(640, 480, 'nature'),
-            'audio_url' => fake()->url(),
+            'image_url' => $randomImage,
+            'audio_url' => $randomAudio,
             'ip_address' => fake()->ipv4(),
             'country' => fake()->country(),
             'city' => fake()->city(),
@@ -32,7 +46,7 @@ class CapsuleFactory extends Factory
             'color' => fake()->safeHexColor(),
             'views' => fake()->numberBetween(0, 1000),
             'is_surprise' => fake()->boolean(),
-            'reveal_date' => fake()->dateTimeBetween('-10 month', '+10 month')->format('Y-m-d'),
+            'reveal_date' => fake()->dateTimeBetween('-1 month', '+1 month')->format('Y-m-d'),
             'created_at' => now(),
             'updated_at' => now(),
         ];
