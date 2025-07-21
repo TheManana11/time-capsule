@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
         UserSeeder::class,
         CapsuleSeeder::class,
         TagSeeder::class,
-        RecieverSeeder::class,
      ]);
     }
 }
