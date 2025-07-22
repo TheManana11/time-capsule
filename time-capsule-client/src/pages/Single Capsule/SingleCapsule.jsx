@@ -1,68 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./SingleCapsule.css";
-import { useParams, Link } from "react-router-dom";
-import axios from "axios";
-import Button from '../../components/shared/Button/Button'
-import JSZip from "jszip";
-import { saveAs } from 'file-saver'
+import useSingleCapsule from "./useSingleCapsule";
+import { formatDate } from '../../Services/dateFormat'
+
 
 const SingleCapsule = () => {
-  const backend_url = "http://127.0.0.1:8000/api";
-  const { id } = useParams();
-
-  const [capsule, setCapsule] = useState({});
-
-    useEffect(() => {
-    getCapsule(); 
-    console.log("test");
-       
-  }, [])
-
-  const getCapsule = async () => {
-    console.log("test");
-    
-    try {
-      const response = await axios.get(`${backend_url}/guest/capsules/${id}`);
-      console.log(response.data.payload);
-      
-      setCapsule(response?.data?.payload);
-    } catch (error) {
-      console.log(error);
-      
-    }
-  }
-
-
-  function formatDate(dateString) {
-  const date = new Date(dateString);
-
-  const options = {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  };
-
-  return date.toLocaleDateString("en-US", options);
-}
-
-
-
-// const downloadZip = async() =>{
-
-//   const zip = new JSZip();
-  
-//   zip.file("capsule.json", JSON.stringify({title: capsule.title, description: capsule.message, country: capsule.country, city: capsule.city, reveal_date: capsule.reveal_date}));
-  
-//   const img = zip.folder("images");
-//   img.file("smile.txt", `http://127.0.0.1:8000/storage/${capsule.image_url}`);
-
-//   const audio = zip.folder("audio");
-//   audio.file("smile.txt", `http://127.0.0.1:8000/storage/${capsule.audio_url}`);
-  
-//     const content = await zip.generateAsync({type: "blob"});
-//     saveAs(content, "capsule.zip");
-// };
-
+  const [capsule] = useSingleCapsule();
 
   return (
     <div className="single-capsule-container">
@@ -101,7 +44,6 @@ const SingleCapsule = () => {
         {/* <Link to={`/location/${capsule.latitude}/${capsule.longitude}`}>Go to exact location</Link>   */}
         <a href={`https://www.google.com/maps?q=${capsule.latitude},${capsule.longitude}`}>Open exact location in maps</a>
       </div>
-      {/* <Button method={downloadZip} text={"Download Capsule as zip file"}/>  */}
     </div>  
   );
 };

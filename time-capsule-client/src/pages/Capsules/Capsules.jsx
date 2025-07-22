@@ -4,96 +4,11 @@ import axios from "axios";
 import { IoFilterOutline } from "react-icons/io5";
 import CapsuleCard from "../../components/Capsule Card/CapsuleCard";
 import Button from "../../components/shared/Button/Button";
+import { formatDate } from '../../Services/dateFormat'
+import useCapsules from "./useCapsules";
 
 const Capsules = () => {
-  const [capsules, setCapsules] = useState([]);
-  const [filteredCapsules, setFilteredCapsules] = useState([]);
-  const [paginationCapsules, setPaginationCapsules] = useState([]);
-  const [page, setPage] = useState(1);
-  const capsulesInPage = 9;
-
-  // const indexOfLastCapsule = ;
-  // const indexOfFirstCapsule = ;
-
-  const [filterForm, setFilterForm] = useState({
-    start_date: "",
-    end_date: "",
-    country: "",
-    tag: "",
-  });
-
-  const getCapsules = async () => {
-    try {
-      const response = await axios.get(
-        "http://127.0.0.1:8000/api/guest/capsules"
-      );
-
-      setCapsules(response.data.payload);
-      setFilteredCapsules(response.data.payload);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getCapsules();
-  }, []);
-
-
-  useEffect(() => {
-    const start = (page - 1) * capsulesInPage;
-    const end = start + capsulesInPage;
-    setPaginationCapsules(filteredCapsules.slice(start, end))
-  }, [filteredCapsules, page]);
-
-
-  const handleChange = (e) => {
-    setFilterForm({
-      ...filterForm,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let array = [...capsules];
-    if (filterForm.start_date)
-      array = array.filter(
-        (item) => item.reveal_date.slice(0, 10) >= filterForm.start_date
-      );
-    if (filterForm.end_date)
-      array = array.filter((item) => item.reveal_date <= filterForm.end_date);
-    if (filterForm.country)
-      array = array.filter(
-        (item) =>
-          item.country.toLowerCase() === filterForm.country.toLowerCase()
-      );
-    if (filterForm.tag)
-      array = array.filter((item) =>
-        item?.tags?.some((tag) => tag.name === filterForm.tag)
-      );
-
-    setFilteredCapsules(array);
-
-    setFilterForm({
-      start_date: "",
-      end_date: "",
-      country: "",
-      tag: "",
-    });
-  };
-
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-
-    const options = {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    };
-
-    return date.toLocaleDateString("en-US", options);
-  }
+  const [filterForm, handleChange, handleSubmit, filteredCapsules, page, capsulesInPage, setPage, paginationCapsules, capsules] = useCapsules();
 
   return (
     <div className="capsules-container">

@@ -11,7 +11,6 @@ import Auth from "../pages/Auth/Auth.jsx";
 import Home from "../pages/Home/Home.jsx";
 import Capsules from "../pages/Capsules/Capsules.jsx";
 import SingleCapsule from "../pages/Single Capsule/SingleCapsule.jsx";
-import Location from "../pages/Location/Location.jsx";
 import Contact from "../pages/Contact/Contact.jsx";
 import Dashboard from "../pages/Dashboard/Dashboard.jsx";
 
@@ -33,7 +32,6 @@ const MainRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/capsules" element={<Capsules />} />
         <Route path="/capsules/:id" element={<SingleCapsule />} />
-        <Route path="/location/:lat/:long" element={<Location />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="user-profile" element={<UserProfile />} />

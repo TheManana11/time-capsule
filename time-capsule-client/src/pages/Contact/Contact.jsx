@@ -1,41 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Contact.css";
 import contactImg from "../../assets/images/Vector (1).png";
 import { LuPhone } from "react-icons/lu";
 import { MdMailOutline } from "react-icons/md";
 import Button from '../../components/shared/Button/Button'
-import axios from "axios";
+import useContact from "./useContact";
 // import Response from '../../components/shared/Response/Response'
 
 const Contact = () => {
-  const backend_url = "http://127.0.0.1:8000/api/guest/contact";
-  const[formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  })
-
-  const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
-
-  const handleSubmit = async(e) => {
-    e.preventDefault()
-    try {
-      const response = await axios.post(`${backend_url}`, formData);
-      console.log(response);
-      setFormData({
-      name: "",
-      email: "",
-      message: ""
-  })
-    } catch (error) {
-      console.log(error);
-    }
-  } 
+  const [formData, handleChange, handleSubmit] = useContact();
 
   return (
     <div className="contact-container">
