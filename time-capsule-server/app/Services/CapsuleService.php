@@ -6,66 +6,73 @@ use App\Models\Capsule;
 use App\Models\Tag;
 use Directory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Stevebauman\Location\Facades\Location;
-use ZipArchive;
 
 class CapsuleService
 {
 
     static function addCapsules(Request $req)
     {
-        try {
+        // try {
             $req->validate([
                 'user_id' => 'required|integer',
                 'title' => 'required|string',
                 'message' => 'required|string',
-                'type' => 'required|integer',
+                'type' => 'required|string',
                 'emoji' => 'required|string',
                 'color' => 'required|string',
                 'tag1' => 'required|string',
                 'tag2' => 'required|string',
                 'tag3' => 'required|string',
-                'is_surprise' => 'required|boolean',
                 'reveal_date' => 'required|date',
             ]);
             $ip = $req->ip();
             $position = Location::get("8.8.8.8");
 
 
-            function base64_to_jpeg($base64_string)
+            function base64_to_image($base64_string)
             {
-
-                $folder = public_path("images");
                 $data = explode(',', $base64_string);
+
+                if (!preg_match('/^data:(.*);base64,/', $base64_string, $matches)) {
+                    throw new \Exception('Invalid MIME type: ' . $base64_string);
+                }
+                $extension = explode('/', $matches[1])[1] ?? 'bin';
+
 
                 $image = base64_decode($data[1]);
 
-                $file_name = now()->format("Ymd_His") . ".png";
-                $file_path = $folder . "/" . $file_name;
+                $file_name = "image_" . now()->format("Ymd_His") . "." . $extension;
+                $file_path = "images/" . $file_name;
 
-                file_put_contents($file_path, $image);
+                Storage::disk("public")->put($file_path, $image);
 
-                return "images/" . $file_name;
+                return $file_path;
             }
 
-            $image = base64_to_jpeg($req->image_url);
+            $image = base64_to_image($req->image_url);
 
-            function base64_to_audio($base64_string, $extension = 'mp3')
+
+            function base64_to_audio($base64_string)
             {
-
-                $folder = public_path("audio");
                 $data = explode(',', $base64_string);
+
+
+                if (!preg_match('/^data:(.*);base64,/', $base64_string, $matches)) {
+                    throw new \Exception('Invalid MIME type: ' . $base64_string);
+                }
+                $extension = explode('/', $matches[1])[1] ?? 'bin';
 
                 $audio = base64_decode($data[1]);
 
-                $file_name = now()->format("Ymd_His") . ".mp3";
-                $file_path = $folder . "/" . $file_name;
+                $file_name = "audio_" . now()->format("Ymd_His") . "." . $extension;
+                $file_path = "audios/" . $file_name;
 
-                file_put_contents($file_path, $audio);
+                Storage::disk("public")->put($file_path, $audio);
 
-                return "audio/" . $file_name;
+                return $file_path;
             }
-
             $audio = base64_to_audio($req->audio_url);
 
 
@@ -99,9 +106,9 @@ class CapsuleService
             if ($tag_3) $capsule->tags()->attach($tag_3->id);
 
             return $capsule;
-        } catch (\Throwable $th) {
-            return null;
-        }
+    //     } catch (\Throwable $th) {
+    //         return null;
+    //     }
     }
 
 
@@ -140,49 +147,5 @@ class CapsuleService
 
         if (!$capsules || count($capsules) === 0) return null;
         return $capsules;
-    }
-
-
-    static function zipCapsule(string $id)
-    {
-        // try {
-        $capsule = Capsule::find($id);
-
-        $file_name = "capsule" . $capsule->id . ".zip";
-        $zip_file_path = storage_path('app/public/' . $file_name);
-
-        $zip = new ZipArchive();
-        $result = $zip->open($zip_file_path, ZipArchive::CREATE);
-
-        if ($result !== true) {
-            return $result;
-        }
-
-        $content = "Title: " . $capsule->title . "\r\n" .  "Message: " . $capsule->message . "\r\n" .
-            "set date: " . $capsule->created_at . "\r\n" .
-            "reveal_date: " . $capsule->reveal_date . "\r\n";
-
-        $zip->addFromString("content.txt", $content);
-
-        if ($capsule->image_url) {
-            $image_path = storage_path("app/public/images/" . $capsule->image_url);
-            if (file_exists($image_path)) {
-                $zip->addFile($image_path, "image/" . basename($image_path));
-            }
-        }
-
-        if ($capsule->audio_url) {
-            $audio_path = storage_path("app/public/audios/" . $capsule->audio_url);
-            if (file_exists($audio_path)) {
-                $zip->addFile($audio_path, "audio/" . basename($audio_path));
-            }
-        }
-
-        $zip->close();
-
-        return $zip_file_path;
-        // } catch (\Throwable $th) {
-        //    return 2;
-        // }
     }
 }

@@ -34,11 +34,4 @@ class CapsuleController extends Controller
         if(!$capsules) return ResponseService::response([], "NO capsules for this user", 404);
         return ResponseService::response($capsules);
     }
-
-
-     static function zipCapsule(string $id){
-        $zip_file = CapsuleService::zipCapsule($id);
-        if(!$zip_file) return ResponseService::response([], "Could not create zip file", 500);
-        return response()->download($zip_file)->deleteFileAfterSend(true);
-    }
 }
