@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use ZipArchive;
 use App\Models\Capsule;
 use Illuminate\Http\Request;
 use App\Services\CapsuleService;

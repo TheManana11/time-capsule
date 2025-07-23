@@ -2,10 +2,15 @@
 
 namespace App\Services;
 
-use App\Models\Capsule;
-use App\Models\Tag;
 use Directory;
+use ZipArchive;
+use App\Models\Tag;
+use Ramsey\Uuid\Uuid;
+use App\Models\Capsule;
 use Illuminate\Http\Request;
+use App\Services\MailService;
+use App\Services\AddZipService;
+use App\Services\FileHandleService;
 use Illuminate\Support\Facades\Storage;
 use Stevebauman\Location\Facades\Location;
 
@@ -28,53 +33,14 @@ class CapsuleService
                 'reveal_date' => 'required|date',
             ]);
             $ip = $req->ip();
-            $position = Location::get("8.8.8.8");
+            
+            $position = Location::get("185.33.111.200");           
 
+            $image = FileHandleService::base64_to_image($req->image_url);
+            $audio = FileHandleService::base64_to_audio($req->audio_url);
 
-            function base64_to_image($base64_string)
-            {
-                $data = explode(',', $base64_string);
-
-                if (!preg_match('/^data:(.*);base64,/', $base64_string, $matches)) {
-                    throw new \Exception('Invalid MIME type: ' . $base64_string);
-                }
-                $extension = explode('/', $matches[1])[1] ?? 'bin';
-
-
-                $image = base64_decode($data[1]);
-
-                $file_name = "image_" . now()->format("Ymd_His") . "." . $extension;
-                $file_path = "images/" . $file_name;
-
-                Storage::disk("public")->put($file_path, $image);
-
-                return $file_path;
-            }
-
-            $image = base64_to_image($req->image_url);
-
-
-            function base64_to_audio($base64_string)
-            {
-                $data = explode(',', $base64_string);
-
-
-                if (!preg_match('/^data:(.*);base64,/', $base64_string, $matches)) {
-                    throw new \Exception('Invalid MIME type: ' . $base64_string);
-                }
-                $extension = explode('/', $matches[1])[1] ?? 'bin';
-
-                $audio = base64_decode($data[1]);
-
-                $file_name = "audio_" . now()->format("Ymd_His") . "." . $extension;
-                $file_path = "audios/" . $file_name;
-
-                Storage::disk("public")->put($file_path, $audio);
-
-                return $file_path;
-            }
-            $audio = base64_to_audio($req->audio_url);
-
+            $token = null;
+            if($req->type === "unlisted") $token = uuid::uuid4()->toString();
 
             $capsule = new Capsule();
 
@@ -88,7 +54,7 @@ class CapsuleService
             $capsule->color = $req->color;
             $capsule->is_surprise = $req->is_surprise;
             $capsule->reveal_date = $req->reveal_date;
-
+            $capsule->unique_token = $token;
             $capsule->ip_address = $ip;
             $capsule->country = $position->countryName;
             $capsule->city = $position->cityName;
@@ -105,10 +71,13 @@ class CapsuleService
             if ($tag_2) $capsule->tags()->attach($tag_2->id);
             if ($tag_3) $capsule->tags()->attach($tag_3->id);
 
+            AddZipService::getZippedFile($capsule->id);
+
+            // $res = MailService::sendAutoMail($req->user_id, $req->reveal_date);
             return $capsule;
-    //     } catch (\Throwable $th) {
-    //         return null;
-    //     }
+        // } catch (\Throwable $th) {
+        //     return null;
+        // }
     }
 
 
@@ -129,21 +98,16 @@ class CapsuleService
             ->find($id);
 
         if (!$capsule) return null;
+
+        $capsule->views += 1; 
+        $capsule->save();
         return $capsule;
     }
 
     static function getUserCapsules(string $id)
     {
         $capsules = Capsule::with('user:id,name', "tags:id,name")
-            ->where("user_id", $id)
-            ->where(function ($query) {
-                $query->where("is_surprise", 0)
-                    ->orWhere(function ($query_2) {
-                        $query_2->where("is_surprise", 1)->where("reveal_date", "<=", now());
-                    });
-            })->get();
-
-
+            ->where("user_id", $id)->get();
 
         if (!$capsules || count($capsules) === 0) return null;
         return $capsules;
