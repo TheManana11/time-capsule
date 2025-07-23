@@ -1,0 +1,75 @@
+.add-capsule{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    gap: 2rem;
+}
+
+.add-capsule > form > h1{
+    color: #5D737E;
+}
+
+.add-capsule > form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.add-capsule textarea{
+    height: 20vh;
+    width: 50vw;
+}
+
+.add-capsule-inputs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.add-label-input{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.add-label-input > input, .add-label-input > select{
+    padding: 0.7rem 0.3rem;
+    border-radius: 5px;
+    width: 20vw;
+    border: 1px solid #2e2e2e;
+}
+
+.add-label-check{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .add-capsule-inputs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.add-label-input > input, .add-label-input > select{
+    width: 30vw;
+}
+.add-capsule textarea{
+    height: 20vh;
+    width: 60vw;
+}
+}
+
+@media (max-width: 500px) {
+    .add-capsule-inputs{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+}
+.add-label-input > input, .add-label-input > select{
+    width: 50vw;
+}
+
+}

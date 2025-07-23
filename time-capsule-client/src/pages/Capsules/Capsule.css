@@ -1,0 +1,113 @@
+.capsules-container{
+    margin: 0 5rem;
+}
+
+
+.capsules-filters > form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4rem 0;
+}
+
+.filters{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.filter-label{
+    color: #000000;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+.filters > input, .filters > select{
+    padding: 0.2rem 0.5rem;
+    border: 1px solid #5D737E;
+    border-radius: 5px;
+}
+
+.capsules{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.capsules-head{
+    color: #000000;
+}
+
+.capsule-items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+
+
+
+@media (max-width: 1200px) {
+    :root{
+        font-size: 14px;
+    }
+    .capsule-items{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+}
+}
+
+
+@media (max-width: 768px) {
+    :root{
+        font-size: 12px;
+    }
+
+    .capsules-filters > form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin: 4rem 0;
+}
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 5rem;
+}
+}
+
+@media (max-width: 700px) {
+     .capsule-items{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5rem;
+}
+.capsules{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+}
+
+@media (max-width: 400px) {
+    .filters{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+}
