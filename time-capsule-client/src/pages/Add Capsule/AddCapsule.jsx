@@ -19,7 +19,7 @@ const AddCapsule = () => {
     tag1: "",
     tag2: "",
     tag3: "",
-    is_surprise: "",
+    is_surprise: false,
     message: "",
   });
 
@@ -129,7 +129,7 @@ const AddCapsule = () => {
           <div className="add-label-input">
             <label htmlFor="title">Reveal Date</label>
             <input
-              type="date"
+              type="datetime-local"
               name="reveal_date"
               value={formData.reveal_date}
               onChange={handleOnChange}

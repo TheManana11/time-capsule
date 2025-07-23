@@ -9,6 +9,17 @@
   padding: 2rem;
 }
 
+.unlisted{
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #FF922F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
 .capsule-card-container > hr{
   border: none;
   border-top: 3px solid #FF922F;

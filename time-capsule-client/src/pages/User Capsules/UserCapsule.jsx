@@ -5,7 +5,7 @@ import { formatDate } from '../../Services/dateFormat'
 import useUserCapsules from './useUserCapsules'
 
 const UserCapsule = () => {
-  const[capsules, ] = useUserCapsules();
+  const[capsules] = useUserCapsules();
 
   return capsules.length === 0 ? (<h1 className='user-capsules-container'>You didn't add any capsule till now</h1>) :
    (
@@ -27,6 +27,7 @@ const UserCapsule = () => {
                 tags={capsule.tags}
                 color = {capsule.color}
                 type={capsule.type}
+                token = {capsule.unique_token}
               />
           })
         }

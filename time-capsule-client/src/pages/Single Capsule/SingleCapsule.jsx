@@ -2,6 +2,7 @@ import React from "react";
 import "./SingleCapsule.css";
 import useSingleCapsule from "./useSingleCapsule";
 import { formatDate } from '../../Services/dateFormat'
+import Button from '../../components/shared/Button/Button'
 
 
 const SingleCapsule = () => {
@@ -44,6 +45,9 @@ const SingleCapsule = () => {
         {/* <Link to={`/location/${capsule.latitude}/${capsule.longitude}`}>Go to exact location</Link>   */}
         <a href={`https://www.google.com/maps?q=${capsule.latitude},${capsule.longitude}`}>Open exact location in maps</a>
       </div>
+      <a href={`http://127.0.0.1:8000/storage/capsule_${capsule.id}.zip`} download>
+        Download Zip File
+      </a>
     </div>  
   );
 };
